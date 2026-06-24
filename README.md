@@ -26,18 +26,21 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+The game will give you some secret number that you must guess, you will be allow some attempts to guess based on the difficutlty of the game.
 - [ ] Detail which bugs you found.
+I found 3 bugs, if you guess higher it will give a hint and said lower. Another one is that it automatically convert our guesses into string for some reason. Lastly, the attempt count started at 1 instead of 0, which will offset the amount of attempts that we have.
 - [ ] Explain what fixes you applied.
-
+For bug 1, I just need to switch the hint string lower to higher and higher to lower.
+For bug 2, I remove the code where it changed the guess into a string
+For bug 3, I changed 1 back to 0 attempt
 ## 📸 Demo Walkthrough
 
-Describe your fixed game in numbered steps so a reader can follow along without watching a video:
+1 Start the game by running streamlit run app.py, then choose Normal difficulty in the sidebar. The game should show the correct range and display 8 attempts left before any guess is submitted.
+2 Test the attempt counter by entering your first guess, such as 50, and clicking Submit Guess. After submitting, the attempts left should decrease by exactly 1, so Normal mode should now show 7 attempts left, not start at 7 before playing.
+3 Test the “too high” hint by using the debug secret number or picking a guess greater than the secret. For example, if the secret is 40, enter 60; the game should say the guess is Too High and tell the player to go lower.
+4 Test the “too low” hint by entering a guess smaller than the secret. For example, if the secret is 40, enter 20; the game should say the guess is Too Low and tell the player to go higher.
+5 Test the secret number type bug by making multiple guesses, including an even-numbered attempt. The game should compare guesses and the secret as numbers every time, so values like 9 and 10 should behave correctly instead of being compared like strings.
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
